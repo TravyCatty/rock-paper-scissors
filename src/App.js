@@ -17,7 +17,7 @@ const Game = () => {
   const handleClick = (choice) => {
     setPlayerChoice(choice)
     const computerIndex = Math.floor(Math.random() * 3)
-    setComputerChoice(choices[computerIndex].name)
+    setComputerChoice(choices[computerIndex])
     setResult(getResultIndex(choice, choices[computerIndex].name))
   }
 
@@ -61,7 +61,8 @@ const Game = () => {
       {playerChoice && (
         <p>
           Вы выбрали <strong>{playerChoice}</strong>, компьютер выбрал{' '}
-          <strong>{computerChoice}</strong>
+          <strong>{computerChoice.name}</strong>
+          <img src={computerChoice.image} alt="icon"/>
         </p>
       )}
       {result !== null && <p>{getResultText(result)}</p>}
